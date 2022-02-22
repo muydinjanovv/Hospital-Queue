@@ -1,0 +1,24 @@
+@model hospital.ViewModels.RowViewModel;
+
+@{
+    Layout = "_Layout";
+}
+
+<table class="table table-bordered border-primary">
+    <thead>
+        <tr>
+            <th scope="col">Fullname</th>
+            <th scope="col">Telephone number</th>
+            <th scope="col">Your turn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Fullname</td>
+            <td>@Model.Phone</td>
+            <td>@Model.CreatedAt.ToString("MMM dd, HH:mm")</td>
+        </tr>
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="/">Home</a>

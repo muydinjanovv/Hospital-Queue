@@ -1,0 +1,23 @@
+﻿@model List<hospital.ViewModels.RowViewModel>
+
+<table class="table table-bordered border-primary">
+  <thead>
+    <tr>
+      <th scope="col">Fullname</th>
+      <th scope="col">Telephone number</th>
+      <th scope="col">Your turn</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    @foreach (var user in Model)
+    {
+      <tr>
+        <td>@user.Fullname</td>
+        <td>(XX) XXX @user.Phone.Substring(user.Phone.Length - 4)</td>
+        <td>@user.CreatedAt.ToString("MMM dd, HH:mm")</td>
+      </tr>
+    }
+  </tbody>
+</table>
+<a class="btn btn-primary" href="/Home/TakeRow">Take Queue</a>

@@ -1,0 +1,29 @@
+@model List<hospital.ViewModels.RowViewModel>
+
+<table class="table table-bordered border-primary">
+  <thead>
+    <tr>
+      <th scope="col">Fullname</th>
+      <th scope="col">Telephone number</th>
+      <th scope="col">Your turn</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    @foreach (var user in Model)
+    {
+      <tr>
+        <td>@user.Fullname</td>
+        <td>@user.Phone</td>
+        <td>@user.CreatedAt.ToString("MMM dd, HH:mm")</td>
+        <td>
+          <form method="post" asp-action="Inactive" asp-controller="Home">
+            <button type="submit" class="btn btn-outline-warning" asp-route-id="@user.Id">Dequeue
+                </button>
+          </form> 
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+<a class="btn btn-primary" href="/">Home</a>
